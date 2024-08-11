@@ -15,28 +15,30 @@ function App() {
   const pic1 = require('./img/pic1.png');
   const pic2 = require('./img/pic2.png');
 
-  const [setVivibleOfMain, setFull] = useState(true);
-  
+  const [setVisibleOfMain, setFull] = useState(true);
+
   function handleClick() {
-    setFull(!setVivibleOfMain);
+    setFull(!setVisibleOfMain);
   }
 
   return (
     <div>
-      <Menu />
-      <div className="flex flex-row justify-center items-center py-2">
-        <h1>Click to see the behaviour of element:</h1>
-        <button className="ml-2 w-16 h-16" onClick={handleClick}>
-          <Image src={setVivibleOfMain ? pic2: pic1} className="w-12" alt='Image' />
-        </button>
-        <h1 className="ml-2 w-7">{setVivibleOfMain ? 'Visible' : 'Hidden'}</h1>
-      </div>
-      {setVivibleOfMain &&
-        <Main />
-      }
+      <div className="w-screen-2xl">
+        <Menu />
+        <div className="flex flex-row justify-center items-center py-2">
+          <h1>Click to see the behaviour of element:</h1>
+          <button className="ml-2 w-16 h-16" onClick={handleClick}>
+            <Image src={setVisibleOfMain ? pic2 : pic1} className="w-12" alt='Image' />
+          </button>
+          <h1 className="ml-2 w-7">{setVisibleOfMain ? 'Visible' : 'Hidden'}</h1>
+        </div>
+        {setVisibleOfMain &&
+          <Main />
+        }
         <Footer />
+      </div>
     </div>
-);
+  );
 }
 
 export default App;
