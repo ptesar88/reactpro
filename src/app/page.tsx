@@ -4,7 +4,7 @@
 "use client";
 
 // Import useState from 'react' library
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from 'next/image';
 import Main from './components/Main';
 import Menu from './components/Menu';
@@ -20,6 +20,8 @@ function App() {
   function handleClick() {
     setFull(!setVisibleOfMain);
   }
+  
+  useEffect(() => console.log('Behaviour of element: ',setVisibleOfMain));
 
   return (
     <div>
